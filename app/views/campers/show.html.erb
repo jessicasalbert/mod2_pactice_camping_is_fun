@@ -4,7 +4,10 @@
 
 <h3>Activities:</h3>
 <ul>
-    <% @camper.activities.each do |act| %>
-        <li><%=link_to act.name, activity_path(act)%></li>
+    <% @camper.signups.each do |signup| %>
+        <li><%=link_to signup.activity.name, activity_path(signup.activity)%> at <%=signup.time%>:00</li>
     <%end%>
 </ul>
+
+
+<%= link_to "Sign up for an activity", new_signup_path %>

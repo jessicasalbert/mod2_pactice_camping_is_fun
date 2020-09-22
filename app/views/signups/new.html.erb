@@ -1,0 +1,12 @@
+<h3> Register for an activity </h3>
+
+
+<%= form_for @signup do |f| %>
+    <%=f.label "Choose a camper:" %><br>
+    <%=f.collection_select :camper_id, Camper.all, :id, :name %><br><br>
+    <%=f.label "Choose an activity:" %><br>
+    <%=f.collection_select :activity_id, Activity.all, :id, :name %><br><br>
+    <%=f.label "Select a time for this activity:" %><br>
+    <%=f.select :time, (0..23) %><br><br>
+    <%=f.submit "Register"%>
+<% end %>
